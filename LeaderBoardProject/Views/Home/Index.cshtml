@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LeaderBoardProject.Models.Gamer> 
+@{
+    var list = Model.ToList();
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Leader Board(weekly)</h3>
+        <hr />
+<table class="table" style="width:100%;">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>Score</th>
+            <th>Age</th>
+            <th>Daily Change</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var gamer in list)
+        {
+            var style = "";
+            if (gamer.currentUser)
+            {
+                style = "color:yellowgreen;";
+            }
+            <tr style="@style">
+                <td>@gamer.UserId</td>
+                <td>@gamer.UserName</td>
+                <td>@gamer.Score</td>
+                <td>@gamer.Age</td>
+                <td>+2</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
+</div>
